@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2021_09_11_002050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
   create_table "images", force: :cascade do |t|
     t.string "source"
     t.string "name"
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 2021_09_11_002050) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
 
   create_table "videos", force: :cascade do |t|
     t.string "source"
