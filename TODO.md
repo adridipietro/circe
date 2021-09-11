@@ -16,3 +16,4 @@
 16. combineReducers []
 17. THUNK []
 18. npm installreact-router-dom [x]
+19. seed data []

@@ -35,27 +35,35 @@
 # FRONTEND
 
 1. FORMS
-- signup []
-- login []
-- logout []
-- create Image content []
-- create Video content []
-- create Post content []
+- signup [x]
+- login [x]
+- logout [x]
+- create Image content [x]
+- create Video content [x]
+- create Post content [x]
 - Edit Image []
 - Edit Video []
 - Edit Post []
 
 2. CONTAINERS
 - all content []
-- all images []
-- all videos []
-- all posts []
+- all images [x]
+- all videos [x]
+- all posts [x]
 - one (1) image []
 - one (1) video []
 - one (1) post []
-- home page []
-- about page []
-- navbar []
+- home page [x]
+- about page [x]
+- navbar [x]
+
+3. OTHER
+- delete image []
+- delete video []
+- delete post []
+- like image []
+- like video []
+- like post []
 
 
 
