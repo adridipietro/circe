@@ -10,7 +10,7 @@
 10. gem install active storage in rails []
 11. use npx react command line to generate frontend [x]
 12. user associations to other resources []
-13. routes []
+13. routes [x]
 14. npm install react-redux [x]
 15. configureStore []
 16. combineReducers []
