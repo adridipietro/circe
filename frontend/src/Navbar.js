@@ -14,7 +14,7 @@ const link = {
 export default function Navbar() {
     return (
         <nav className="navbar">
-             <NavLink to='/images' 
+             <NavLink exact to='/images' 
                 className="nav-link"
                 style={link}
                 activeStyle={{
@@ -22,7 +22,7 @@ export default function Navbar() {
                     color: 'white'
                 }}
              >IMAGES</NavLink>
-             <NavLink to='/videos' 
+             <NavLink exact to='/videos' 
                 className="nav-link"
                 style={link}
                 activeStyle={{
@@ -30,7 +30,7 @@ export default function Navbar() {
                     color: 'white'
                 }}
              >VIDEOS</NavLink>
-             <NavLink to='/posts' 
+             <NavLink exact to='/posts' 
                 className="nav-link"
                 style={link}
                 activeStyle={{
@@ -38,7 +38,7 @@ export default function Navbar() {
                     color: 'white'
                 }}
              >POSTS</NavLink>
-             <NavLink to='/' 
+             <NavLink exact to='/' 
                 className="nav-link"
                 style={link}
                 activeStyle={{

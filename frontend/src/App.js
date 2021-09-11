@@ -17,13 +17,13 @@ function App() {
       <Router>
         <Navbar/>
         <Switch>
-          <Route exact to="/" render={() => <Home/>}></Route>
-          <Route exact to="/videos" component={VideosContainer}></Route>
-          <Route exact to="/images" component={ImagesContainer}></Route>
-          <Route exact to="/posts" component={PostsContainer}></Route>
-          <Route exact to="/videos/new" render={() => <NewVideoForm/>}></Route>
-          <Route exact to="/posts/new" render={() => <NewPostForm/>}></Route>
-          <Route exact to="/images/new" render={() => <NewImageForm/>}></Route>
+          <Route exact to="/" render={() => <Home/>}/>
+          <Route exact to="/videos" render={() => <VideosContainer/>}/>
+          <Route exact to="/images" render={() => <ImagesContainer/>}/>
+          <Route exact to="/posts" render={() => <PostsContainer/>}/>
+          <Route exact to="/videos/new" render={() => <NewVideoForm/>}/>
+          <Route exact to="/posts/new" render={() => <NewPostForm/>}/>
+          <Route exact to="/images/new" render={() => <NewImageForm/>}/>
         </Switch>
       </Router>
     </div>
