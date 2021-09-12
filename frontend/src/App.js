@@ -17,10 +17,17 @@ import NewVideoForm from './video-resource/NewVideoForm'
 import Post from './post-resource/Post'
 import Video from './video-resource/Video'
 import Image from './image-resource/Image'
+import { connect } from 'react-redux'
+
+import { getImages, createImage } from './actions/index.js'
 
 
 
-export default class App extends React.Component{
+class App extends React.Component{
+
+  componentDidMount(){
+    this.props.getImages()
+  }
   
   render(){
     return (
@@ -32,7 +39,7 @@ export default class App extends React.Component{
             <Route exact path="/" render={() => <Home/>}/>
             <Route exact path="/about" render={() => <About/>}/>
             <Route exact path="/videos" render={() => <VideosContainer/>}/>
-            <Route exact path="/images" render={() => <ImagesContainer/>}/>
+            <Route exact path="/images" render={routeProps => <ImagesContainer images={this.props.images} getImages={this.props.getImages} {...routeProps}/>}/>
             <Route exact path="/posts" render={() => <PostsContainer/>}/>
             <Route exact path="/videos/new" render={() => <NewVideoForm/>}/>
             <Route exact path="/posts/new" render={() => <NewPostForm/>}/>
@@ -46,5 +53,24 @@ export default class App extends React.Component{
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    images: state.images.images,
+    videos: state.videos.videos,
+    posts: state.posts.posts
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getImages: () => dispatch(getImages()),
+    createImage: (image) => dispatch(createImage(image))
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 

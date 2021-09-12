@@ -1,11 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import Image from './Image'
+//import { getImages } from '../actions/index.js'
 
-export default class ImagesContainer extends Component {
-    render() {
-        return (
-            <div className="images-container">
-                <h3>IMAGES</h3>
-            </div>
-        )
+export const ImagesContainer = (props) => {
+
+    const renderImages = () => {
+        return props.images.map(image => {
+            return <Image key={image.id} {...image}/>
+        })
+    }
+    return (
+        <div className="images-container">
+            {renderImages(props)}
+        </div>
+    )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        images: state.images.images
     }
 }
+
+/* const mapDispatchToProps = {
+    
+} */
+
+export default connect(mapStateToProps, null)(ImagesContainer)
+

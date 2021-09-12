@@ -1,3 +1,15 @@
+import {
+    LOADING_POSTS,
+    GET_POSTS,
+    CREATE_POST,
+    DELETE_POST,
+    LIKE_POST,
+    EDIT_POST
+} from '../actions/types.js'
+
+
+
+
 export default (state = { posts: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_POSTS:

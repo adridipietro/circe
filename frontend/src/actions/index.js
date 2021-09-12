@@ -1,9 +1,9 @@
 export {
     getImages,
-    createImage,
-    deleteImage,
+    createImage
+    /* deleteImage,
     editImage,
-    likeImage,
+    likeImage */
 } from './images'
 
 
@@ -12,7 +12,7 @@ export {
     createVideo,
     deleteVideo,
     editVideo,
-    likeVideo,
+    likeVideo
 } from './videos'
 
 export {
@@ -20,5 +20,5 @@ export {
     createPost,
     deletePost,
     editPost,
-    likePost,
+    likePost
 } from './posts'

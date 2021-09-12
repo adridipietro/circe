@@ -1,3 +1,15 @@
+import {
+    LOADING_VIDEOS,
+    GET_VIDEOS,
+    CREATE_VIDEO,
+    DELETE_VIDEO,
+    LIKE_VIDEO,
+    EDIT_VIDEO
+} from '../actions/types.js'
+
+
+
+
 export default (state = { videos: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_VIDEOS:
