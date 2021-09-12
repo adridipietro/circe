@@ -5,10 +5,13 @@ import Image from './Image'
 
 export const ImagesContainer = (props) => {
 
-    const renderImages = () => {
+    const renderImages = (props) => {
+        debugger
         return props.images.map(image => {
+            
             return <Image key={image.id} {...image}/>
         })
+       
     }
     return (
         <div className="images-container">

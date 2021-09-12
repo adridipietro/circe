@@ -3,9 +3,9 @@ class ImagesController < ApplicationController
 
   # GET /images
   def index
-    @images = Image.all
+    images = Image.all
 
-    render json: @images
+    render json: images
   end
 
   # GET /images/1

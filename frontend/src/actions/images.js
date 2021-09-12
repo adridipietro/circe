@@ -33,7 +33,7 @@ export function createImage(image){
 export function getImages(){
     return(dispatch) => {
         dispatch({type: LOADING_IMAGES})
-        fetch("http://localhost:3000/images", {
+        fetch("http://localhost:3001/images", {
             headers: {
                 "Content-Type": "application/json"
             }

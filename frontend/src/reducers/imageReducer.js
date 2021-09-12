@@ -19,8 +19,8 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
             }
         case GET_IMAGES:
             return {
-                ...state,
-                images: [...state.images, action.payload]
+                loading: false,
+                images: action.payload
             }
         case CREATE_IMAGE:
             return {
