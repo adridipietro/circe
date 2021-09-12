@@ -17,8 +17,8 @@ export {
 
 export {
     getPosts,
-    createPost,
+    /* createPost,
     deletePost,
     editPost,
-    likePost
+    likePost */
 } from './posts'

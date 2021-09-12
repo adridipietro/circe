@@ -19,7 +19,8 @@ import Video from './video-resource/Video'
 import Image from './image-resource/Image'
 import { connect } from 'react-redux'
 
-import { getImages, createImage } from './actions/index.js'
+import { getImages } from './actions/index.js'
+import { getPosts } from './actions/index.js'
 
 
 
@@ -27,6 +28,7 @@ class App extends React.Component{
 
   componentDidMount(){
     this.props.getImages()
+    this.props.getPosts()
   }
   
   render(){
@@ -40,7 +42,7 @@ class App extends React.Component{
             <Route exact path="/about" render={() => <About/>}/>
             <Route exact path="/videos" render={() => <VideosContainer/>}/>
             <Route exact path="/images" render={routeProps => <ImagesContainer images={this.props.images} getImages={this.props.getImages} {...routeProps}/>}/>
-            <Route exact path="/posts" render={() => <PostsContainer/>}/>
+            <Route exact path="/posts" render={routeProps => <PostsContainer posts={this.props.posts} getPosts={this.props.getPosts} {...routeProps}/>}/>
             <Route exact path="/videos/new" render={() => <NewVideoForm/>}/>
             <Route exact path="/posts/new" render={() => <NewPostForm/>}/>
             <Route exact path="/images/new" render={() => <NewImageForm/>}/>
@@ -66,7 +68,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getImages: () => dispatch(getImages()),
-    createImage: (image) => dispatch(createImage(image))
+    getPosts: () => dispatch(getPosts())
 
   }
 }

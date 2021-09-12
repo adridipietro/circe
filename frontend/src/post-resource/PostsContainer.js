@@ -1,11 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Post from './Post'
+import { connect } from 'react-redux'
 
-export default class PostsContainer extends Component {
-    render() {
+const PostsContainer = (props) => {
+
+    const renderPosts = (props) => {
+        return props.posts.map(post => {
+            <Post key={post.id} {...post} />
+        })
+    }
         return (
             <div className="posts-container">
                 <h3>POSTS</h3>
+                {renderPosts(props)}
             </div>
         )
+    
+}
+
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts.posts
     }
 }
+
+export default connect(mapStateToProps, null)(PostsContainer)

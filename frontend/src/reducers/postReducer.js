@@ -14,11 +14,13 @@ export default (state = { posts: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_POSTS:
             return {
-
+                ...state.posts
             }
         case GET_POSTS:
             return {
-                
+                posts: action.payload,
+                loading: false,
+                error: ''
             }
         case CREATE_POST:
             return {
