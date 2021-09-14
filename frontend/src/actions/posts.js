@@ -3,7 +3,8 @@ import {
     CREATE_POST,
     ERROR,
     DELETE_POST,
-    LOADING_POSTS
+    LOADING_POSTS,
+    LIKE_POST
 } from './types.js'
 
 export function getPosts(){
@@ -95,8 +96,7 @@ export function likePost(id){
         const post = getState().posts.posts.find(post => post.id === id)
         const data = {
             name: post.name,
-            source: post.source,
-            caption: post.caption,
+            text: post.text,
             id: id, 
             likes: post.likes
         }

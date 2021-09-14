@@ -1,4 +1,10 @@
-import { CREATE_IMAGE, LOADING_IMAGES, ERROR, GET_IMAGES, DELETE_IMAGE, LIKE_IMAGE } from "./types";
+import { 
+    CREATE_IMAGE, 
+    LOADING_IMAGES, 
+    ERROR, GET_IMAGES, 
+    DELETE_IMAGE, 
+    LIKE_IMAGE 
+} from "./types";
 
 export function createImage(image){
     return (dispatch) => {
@@ -73,6 +79,44 @@ export function deleteImage(id){
                     dispatch({type: DELETE_IMAGE, payload: null})
                 })
             } else {
+                return response.json().then((json) => {
+                    return Promise.reject(json)
+                })
+            }
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error})
+        })
+    }
+}
+
+export function likeImage(id){
+    return(dispatch, getState) => {
+        const image = getState().images.images.find(image => image.id === id)
+        const data = {
+            name: image.name,
+            source: image.source,
+            caption: image.caption,
+            id: id, 
+            likes: image.likes
+        }
+        const configObject = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": 'application/json',
+            
+            },
+            body: JSON.stringify(data)
+        }
+        fetch(`http://localhost:3000/images/${id}`, configObject)
+        .then(response => {
+            if (response.ok) {
+               response.json().then(json => {
+                    dispatch({type: LIKE_IMAGE, payload: json})
+               })
+            } else {
+                console.log(response)
                 return response.json().then((json) => {
                     return Promise.reject(json)
                 })

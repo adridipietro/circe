@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { deletePost, likePost } from '../actions/index'
 import { connect } from 'react-redux'
@@ -17,6 +17,7 @@ const Post = (props) => {
     const handleLike = () => {
         props.likePost(props.id)
         setCount(count + 1)
+        history.push('/posts')
     }
 
     return (

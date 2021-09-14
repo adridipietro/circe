@@ -1,9 +1,9 @@
 export {
     getImages,
     createImage,
-    deleteImage/* ,
-    editImage,
-    likeImage  */
+    deleteImage,
+    /* editImage, */
+    likeImage  
 } from './images'
 
 
@@ -19,6 +19,6 @@ export {
     getPosts,
     createPost,
     deletePost,
-    /* editPost,
-    likePost */
+    /* editPost ,*/
+    likePost 
 } from './posts'
