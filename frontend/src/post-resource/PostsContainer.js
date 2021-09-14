@@ -6,7 +6,7 @@ const PostsContainer = (props) => {
 
     const renderPosts = (props) => {
         return props.posts.map(post => {
-            <Post key={post.id} {...post} />
+            return <Post key={post.id} {...post} />
         })
     }
         return (

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Image from './Image'
-//import { getImages } from '../actions/index.js'
 
-export const ImagesContainer = (props) => {
+
+const ImagesContainer = (props) => {
 
     const renderImages = (props) => {
         debugger
@@ -15,6 +15,7 @@ export const ImagesContainer = (props) => {
     }
     return (
         <div className="images-container">
+            <h4> IMAGES </h4>
             {renderImages(props)}
         </div>
     )

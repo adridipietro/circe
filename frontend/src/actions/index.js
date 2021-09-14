@@ -1,24 +1,24 @@
 export {
     getImages,
-    createImage
-    /* deleteImage,
+    createImage,
+    deleteImage/* ,
     editImage,
-    likeImage */
+    likeImage  */
 } from './images'
 
 
 export {
     getVideos,
     createVideo,
-    deleteVideo,
+    deleteVideo/* ,
     editVideo,
-    likeVideo
+    likeVideo */
 } from './videos'
 
 export {
     getPosts,
-    /* createPost,
+    createPost,
     deletePost,
-    editPost,
+    /* editPost,
     likePost */
 } from './posts'
