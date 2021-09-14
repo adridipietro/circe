@@ -1,4 +1,4 @@
-import { CREATE_IMAGE, LOADING_IMAGES, ERROR, GET_IMAGES} from "./types";
+import { CREATE_IMAGE, LOADING_IMAGES, ERROR, GET_IMAGES, DELETE_IMAGE, LIKE_IMAGE } from "./types";
 
 export function createImage(image){
     return (dispatch) => {
@@ -6,7 +6,8 @@ export function createImage(image){
         fetch('http://localhost:3001/images', {
             method: 'POST',
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
             },
             body: JSON.stringify(image)
         })
@@ -35,7 +36,8 @@ export function getImages(){
         dispatch({type: LOADING_IMAGES})
         fetch("http://localhost:3001/images", {
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
             }
         })
         .then(response => {
@@ -54,3 +56,31 @@ export function getImages(){
         })
     }
 }
+
+export function deleteImage(id){
+    return (dispatch) => {
+        fetch(`http://localhost:3001/images/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify(id)
+        })
+        .then(response => {
+            if (response.ok){
+                response.json().then(() => {
+                    dispatch({type: DELETE_IMAGE, payload: null})
+                })
+            } else {
+                return response.json().then((json) => {
+                    return Promise.reject(json)
+                })
+            }
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error})
+        })
+    }
+}
+
