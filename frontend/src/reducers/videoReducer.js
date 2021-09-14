@@ -14,11 +14,13 @@ export default (state = { videos: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_VIDEOS:
             return {
-
+                ...state.videos
             }
         case GET_VIDEOS:
             return {
-                
+                videos: action.payload,
+                loading: false,
+                error: ''
             }
         case CREATE_VIDEO:
             return {
