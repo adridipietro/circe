@@ -63,8 +63,6 @@ export function createPost(post){
     }
 }
 
-
-
 export function deletePost(id){
     return (dispatch) => {
         fetch(`http://localhost:3001/posts/${id}`, {
@@ -81,6 +79,44 @@ export function deletePost(id){
                     dispatch({type: DELETE_POST, payload: null})
                 })
             } else {
+                return response.json().then((json) => {
+                    return Promise.reject(json)
+                })
+            }
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error})
+        })
+    }
+}
+
+export function likePost(id){
+    return(dispatch, getState) => {
+        const post = getState().posts.posts.find(post => post.id === id)
+        const data = {
+            name: post.name,
+            source: post.source,
+            caption: post.caption,
+            id: id, 
+            likes: post.likes
+        }
+        const configObject = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": 'application/json',
+            
+            },
+            body: JSON.stringify(data)
+        }
+        fetch(`http://localhost:3000/posts/${id}`, configObject)
+        .then(response => {
+            if (response.ok) {
+               response.json().then(json => {
+                    dispatch({type: LIKE_POST, payload: json})
+               })
+            } else {
+                console.log(response)
                 return response.json().then((json) => {
                     return Promise.reject(json)
                 })

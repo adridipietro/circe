@@ -7,6 +7,8 @@ const Video = (props) => {
             <p>source: {props.source}</p>
             <p>caption: {props.caption}</p>
             <p>likes: {props.likes}</p>
+            <br/>
+            <button className="delete" id={props.id}>delete</button>
         </div>
     )
 }
