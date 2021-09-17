@@ -19,9 +19,9 @@ import Video from './video-resource/Video'
 import Image from './image-resource/Image'
 import { connect } from 'react-redux'
 
-import { getImages } from './actions/index.js'
-import { getPosts } from './actions/index.js'
-import { getVideos } from './actions/index.js'
+import { getImages, createImage } from './actions/index.js'
+import { getPosts, createPost } from './actions/index.js'
+import { getVideos, createVideo } from './actions/index.js'
 
 
 
@@ -45,9 +45,9 @@ class App extends React.Component{
             <Route exact path="/videos" render={routeProps => <VideosContainer videos={this.props.videos} getVideos={this.props.getVideos} {...routeProps}/>}/>
             <Route exact path="/images" render={routeProps => <ImagesContainer images={this.props.images} getImages={this.props.getImages} {...routeProps}/>}/>
             <Route exact path="/posts" render={routeProps => <PostsContainer posts={this.props.posts} getPosts={this.props.getPosts} {...routeProps}/>}/>
-            <Route exact path="/videos/new" render={() => <NewVideoForm/>}/>
-            <Route exact path="/posts/new" render={() => <NewPostForm/>}/>
-            <Route exact path="/images/new" render={() => <NewImageForm/>}/>
+            <Route exact path="/videos/new" render={routeProps => <NewVideoForm createVideo={this.props.createVideo} {...routeProps}/>}/>
+            <Route exact path="/posts/new" render={routeProps => <NewPostForm createPost={this.props.createPost} {...routeProps}/>}/>
+            <Route exact path="/images/new" render={routeProps => <NewImageForm createImage={this.props.createImage} {...routeProps}/>}/>
             <Route exact path="/images/:id" render={() => <Image/>}/>
             <Route exact path="/videos/:id" render={() => <Video/>}/>
             <Route exact path="/posts/:id" render={() => <Post/>}/>
@@ -71,7 +71,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getImages: () => dispatch(getImages()),
     getPosts: () => dispatch(getPosts()),
-    getVideos: () => dispatch(getVideos())
+    getVideos: () => dispatch(getVideos()),
+    createImage:(image) => dispatch(createImage(image)),
+    createPost:(post) => dispatch(createPost(post)),
+    createVideo:(video) => dispatch(createVideo(video))
 
   }
 }
