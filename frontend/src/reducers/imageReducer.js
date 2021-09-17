@@ -14,8 +14,9 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_IMAGES:
             return {
-                ...state.images
-
+                ...state,
+                images: [...state.images],
+                loading: true
             }
         case GET_IMAGES:
             return {
@@ -24,6 +25,10 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
             }
         case CREATE_IMAGE:
             return {
+                ...state, 
+                images: [...state.images, action.payload],
+                loading: false,
+                error: ''
                 
             }
         case DELETE_IMAGE:

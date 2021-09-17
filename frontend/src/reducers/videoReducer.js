@@ -14,7 +14,9 @@ export default (state = { videos: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_VIDEOS:
             return {
-                ...state.videos
+                ...state,
+                videos: [...state.videos],
+                loading: true
             }
         case GET_VIDEOS:
             return {
@@ -24,7 +26,10 @@ export default (state = { videos: [], loading: false, error: '' }, action) => {
             }
         case CREATE_VIDEO:
             return {
-                
+                ...state, 
+                videos: [...state.videos, action.payload],
+                loading: false,
+                error: ''
             }
         case DELETE_VIDEO:
             return {

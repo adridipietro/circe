@@ -14,7 +14,9 @@ export default (state = { posts: [], loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_POSTS:
             return {
-                ...state.posts
+                ...state,
+                posts: [...state.posts],
+                loading: true
             }
         case GET_POSTS:
             return {
@@ -24,7 +26,10 @@ export default (state = { posts: [], loading: false, error: '' }, action) => {
             }
         case CREATE_POST:
             return {
-                
+                ...state, 
+                posts: [...state.posts, action.payload],
+                loading: false,
+                error: ''
             }
         case DELETE_POST:
             return {
