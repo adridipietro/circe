@@ -17,6 +17,12 @@ class NewPostForm extends React.Component {
         this.props.createPost(this.state)
         document.querySelector(".post-form").reset()
     }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
     
     render(){
         const { name, text } = this.state
