@@ -19,9 +19,9 @@ import Video from './video-resource/Video'
 import Image from './image-resource/Image'
 import { connect } from 'react-redux'
 
-import { getImages, createImage } from './actions/index.js'
-import { getPosts, createPost } from './actions/index.js'
-import { getVideos, createVideo } from './actions/index.js'
+import { getImages, createImage, likeImage, deleteImage } from './actions/index.js'
+import { getPosts, createPost, likePost, deletePost } from './actions/index.js'
+import { getVideos, createVideo, likeVideo, deleteVideo } from './actions/index.js'
 
 
 
@@ -50,9 +50,9 @@ class App extends React.Component{
             <Route exact path="/videos/new" render={routeProps => <NewVideoForm createVideo={this.props.createVideo} {...routeProps}/>}/>
             <Route exact path="/posts/new" render={routeProps => <NewPostForm posts={this.props.posts} createPost={this.props.createPost} {...routeProps}/>}/>
             <Route exact path="/images/new" render={routeProps => <NewImageForm createImage={this.props.createImage} {...routeProps}/>}/>
-            <Route exact path="/images/:id" render={() => <Image/>}/>
-            <Route exact path="/videos/:id" render={() => <Video/>}/>
-            <Route exact path="/posts/:id" render={() => <Post/>}/>
+            <Route exact path="/images/:id" render={routeProps => <Image deleteImage={this.props.deleteImage} likeImage={this.props.likeImage} {...routeProps}/>}/>
+            <Route exact path="/videos/:id" render={routeProps => <Video deleteVideo={this.props.deleteVideo} likeVideo={this.props.likeVideo} {...routeProps}/>}/>
+            <Route exact path="/posts/:id" render={routeProps => <Post deletePost={this.props.deletePost} likePost={this.props.likePost} {...routeProps}/>}/>
           </Switch>
         </Router>
       </div>
@@ -76,7 +76,13 @@ const mapDispatchToProps = (dispatch) => {
     getVideos: () => dispatch(getVideos()),
     createImage:(image) => dispatch(createImage(image)),
     createPost:(post) => dispatch(createPost(post)),
-    createVideo:(video) => dispatch(createVideo(video))
+    createVideo:(video) => dispatch(createVideo(video)),
+    likeImage: (id) => dispatch(likeImage(id)),
+    deleteImage: (id) => dispatch(deleteImage(id)),
+    likeVideo: (id) => dispatch(likeVideo(id)),
+    deleteVideo: (id) => dispatch(deleteVideo(id)),
+    likePost: (id) => dispatch(likePost(id)),
+    deletePost: (id) => dispatch(deletePost(id))
 
   }
 }

@@ -3,7 +3,7 @@ import React from 'react'
 export default function About() {
     return (
         <>
-        <br/>
+            <br/>
             <div className="about-container">
                 <h2>WELCOME TO CIRCE</h2>
                 <p>...</p>
@@ -13,7 +13,7 @@ export default function About() {
                 <p>...</p>
                 <h3>How It Works</h3>
                 <ul>
-                    <li>Collect anything: Save images, texts, links, entries...</li><br/>
+                    <li>Collect anything: Save images, texts, links, journal entries...</li><br/>
                     <li>Share ideas with other artists or collectors alike.</li><br/>
                     <li>Find inspiration or share inspiration.</li>
                 </ul>
