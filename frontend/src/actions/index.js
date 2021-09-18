@@ -10,9 +10,9 @@ export {
 export {
     getVideos,
     createVideo,
-    deleteVideo/* ,
-    editVideo,
-    likeVideo */
+    deleteVideo,
+    /* editVideo, */
+    likeVideo
 } from './videos'
 
 export {

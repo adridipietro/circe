@@ -2,6 +2,7 @@ import {
     GET_VIDEOS,
     CREATE_VIDEO,
     ERROR,
+    LIKE_VIDEO,
     DELETE_VIDEO,
     LOADING_VIDEOS
 } from './types.js'
@@ -81,6 +82,44 @@ export function deleteVideo(id){
                     dispatch({type: DELETE_VIDEO, payload: null})
                 })
             } else {
+                return response.json().then((json) => {
+                    return Promise.reject(json)
+                })
+            }
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error})
+        })
+    }
+}
+
+export function likeVideo(id){
+    return(dispatch, getState) => {
+        const video = getState().videos.videos.find(video => video.id === id)
+        const data = {
+            name: video.name,
+            source: video.source,
+            caption: video.caption,
+            id: id, 
+            likes: video.likes
+        }
+        const configObject = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": 'application/json',
+            
+            },
+            body: JSON.stringify(data)
+        }
+        fetch(`http://localhost:3001/videos/${id}`, configObject)
+        .then(response => {
+            if (response.ok) {
+               response.json().then(json => {
+                    dispatch({type: LIKE_VIDEO, payload: json})
+               })
+            } else {
+                console.log(response)
                 return response.json().then((json) => {
                     return Promise.reject(json)
                 })
