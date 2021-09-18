@@ -43,3 +43,7 @@ div.navbar {
   display: inline-grid;
   margin: 1rem 2rem;
 }
+
+li {
+  list-style: none;
+}
