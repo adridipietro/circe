@@ -6,9 +6,8 @@ import Image from './Image'
 const ImagesContainer = (props) => {
 
     const renderImages = (props) => {
-        debugger
+        //debugger
         return props.images.map(image => {
-            
             return <Image key={image.id} {...image}/>
         })
        

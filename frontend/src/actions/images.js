@@ -109,7 +109,7 @@ export function likeImage(id){
             },
             body: JSON.stringify(data)
         }
-        fetch(`http://localhost:3000/images/${id}`, configObject)
+        fetch(`http://localhost:3001/images/${id}`, configObject)
         .then(response => {
             if (response.ok) {
                response.json().then(json => {

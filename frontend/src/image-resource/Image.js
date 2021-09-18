@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { deleteImage, likeImage } from '../actions/index'
 import { useHistory } from 'react-router'
 
 
 const Image = (props) => {
-    const [count, setCount] = useState(0)
+    
 
     const history = useHistory()
 
@@ -17,7 +17,6 @@ const Image = (props) => {
 
     const handleLike = () => {
         props.likeImage(props.id)
-        setCount(count + 1)
         history.push('/images')
     }
 
@@ -30,7 +29,7 @@ const Image = (props) => {
             <br/>
             <button className="delete" onClick={handleDelete} id={props.id}>delete</button>
             <button className="like" onClick={handleLike} id={props.id}>like</button>
-            <p className="likes-container">{count}</p>
+            
         </div>
     )
 }

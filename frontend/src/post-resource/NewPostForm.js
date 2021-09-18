@@ -13,12 +13,14 @@ class NewPostForm extends React.Component {
     }
 
     handleSubmit = (e) => {
+        debugger
         e.preventDefault()
         this.props.createPost(this.state)
         document.querySelector(".post-form").reset()
     }
 
     handleChange = (e) => {
+        debugger
         this.setState({
             [e.target.name]: e.target.value
         })

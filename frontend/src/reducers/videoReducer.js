@@ -37,7 +37,16 @@ export default (state = { videos: [], loading: false, error: '' }, action) => {
             }
         case LIKE_VIDEO:
             return {
-                
+                ...state,
+                videos: state.videos.map(video => {
+                    if (video.id !== action.payload){
+                        return video
+                    }
+                    return {
+                        ...video,
+                        likes: video.likes + 1
+                    }
+                })
             }
         case EDIT_VIDEO:
             return {

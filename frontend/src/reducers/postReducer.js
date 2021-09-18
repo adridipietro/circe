@@ -37,7 +37,16 @@ export default (state = { posts: [], loading: false, error: '' }, action) => {
             }
         case LIKE_POST:
             return {
-                
+                ...state,
+                posts: state.posts.map(post => {
+                    if (post.id !== action.payload){
+                        return post
+                    }
+                    return {
+                        ...post,
+                        likes: post.likes + 1
+                    }
+                })
             }
         case EDIT_POST:
             return {

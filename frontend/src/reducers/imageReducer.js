@@ -37,7 +37,16 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
             }
         case LIKE_IMAGE:
             return {
-                
+                ...state,
+                images: state.images.map(image => {
+                    if (image.id !== action.payload){
+                        return image
+                    }
+                    return {
+                        ...image,
+                        likes: image.likes + 1
+                    }
+                })
             }
         case EDIT_IMAGE:
             return {

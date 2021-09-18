@@ -24,7 +24,7 @@ const Post = (props) => {
         <div className="single-post" id={`post-${props.id}`}>
             <h4>{props.name}</h4>
             <p>{props.text}</p>
-            <p>{props.like}</p>
+            <p>{props.likes}</p>
             <br/>
             <button className="delete" onClick={handleDelete} id={props.id}>delete</button>
             <button className="like" onClick={handleLike} id={props.id}>like</button>

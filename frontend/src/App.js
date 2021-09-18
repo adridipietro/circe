@@ -46,7 +46,7 @@ class App extends React.Component{
             <Route exact path="/images" render={routeProps => <ImagesContainer images={this.props.images} getImages={this.props.getImages} {...routeProps}/>}/>
             <Route exact path="/posts" render={routeProps => <PostsContainer posts={this.props.posts} getPosts={this.props.getPosts} {...routeProps}/>}/>
             <Route exact path="/videos/new" render={routeProps => <NewVideoForm createVideo={this.props.createVideo} {...routeProps}/>}/>
-            <Route exact path="/posts/new" render={routeProps => <NewPostForm createPost={this.props.createPost} {...routeProps}/>}/>
+            <Route exact path="/posts/new" render={routeProps => <NewPostForm posts={this.props.posts} createPost={this.props.createPost} {...routeProps}/>}/>
             <Route exact path="/images/new" render={routeProps => <NewImageForm createImage={this.props.createImage} {...routeProps}/>}/>
             <Route exact path="/images/:id" render={() => <Image/>}/>
             <Route exact path="/videos/:id" render={() => <Video/>}/>
