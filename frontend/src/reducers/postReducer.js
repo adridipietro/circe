@@ -32,9 +32,8 @@ export default (state = { posts: [], loading: false, error: '' }, action) => {
                 error: ''
             }
         case DELETE_POST:
-            return {
-                
-            }
+            const removeDeletedPost = state.posts.filter(post => post.id !== action.payload) 
+            return {posts: removeDeletedPost, loading: false}
         case LIKE_POST:
             return {
                 ...state,

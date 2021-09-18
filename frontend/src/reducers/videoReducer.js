@@ -32,9 +32,9 @@ export default (state = { videos: [], loading: false, error: '' }, action) => {
                 error: ''
             }
         case DELETE_VIDEO:
-            return {
-                
-            }
+            const removeDeletedVideo = state.videos.filter(video => video.id !== action.payload) 
+            return {videos: removeDeletedVideo, loading: false}
+            
         case LIKE_VIDEO:
             return {
                 ...state,

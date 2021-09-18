@@ -32,9 +32,8 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
                 
             }
         case DELETE_IMAGE:
-            return {
-                
-            }
+            const removeDeletedImage = state.images.filter(image => image.id !== action.payload) 
+            return {images: removeDeletedImage, loading: false}
         case LIKE_IMAGE:
             return {
                 ...state,
