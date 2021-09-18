@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router'
 import { deletePost, likePost } from '../actions/index'
 import { connect } from 'react-redux'
@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 
 const Post = (props) => {
     const history = useHistory()
-    const [count, setCount] = useState(0)
 
     const handleDelete = () => {
         props.deletePost(props.id)
@@ -16,7 +15,6 @@ const Post = (props) => {
 
     const handleLike = () => {
         props.likePost(props.id)
-        setCount(count + 1)
         history.push('/posts')
     }
 
@@ -28,7 +26,6 @@ const Post = (props) => {
             <br/>
             <button className="delete" onClick={handleDelete} id={props.id}>delete</button>
             <button className="like" onClick={handleLike} id={props.id}>like</button>
-            <p className="likes-container">{count}</p>
         </div>
     )
 }
