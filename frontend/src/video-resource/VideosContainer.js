@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Video from './Video'
+import { VideoCard } from './VideoCard'
 
 const VideosContainer = (props) => {
 
     const renderVideos = (props) => {
-        debugger
+        //debugger
         return props.videos.map(video => {
-            return <Video key={video.id} {...video}/>
+            return <VideoCard key={video.id} {...video}/>
         })
     }
     

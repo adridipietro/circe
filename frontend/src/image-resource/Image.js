@@ -12,12 +12,12 @@ const Image = (props) => {
     const handleDelete = () => {
         props.deleteImage(props.id)
         document.querySelector(`#image-${props.id}`).remove()
-        history.push('/images')
+        history.push(`/images`)
     }
 
     const handleLike = () => {
         props.likeImage(props.id)
-        history.push('/images')
+        history.push(`/images/${props.id}`)
     }
 
     return (

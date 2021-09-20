@@ -47,3 +47,30 @@ div.navbar {
 li {
   list-style: none;
 }
+
+.image-card{ 
+  display: inline-grid;
+  border: grey solid 1px;
+  padding: 1rem;
+  padding-bottom: 1rem;
+  width: 10rem;
+  height: 3.5rem;
+  margin: 1rem 2rem;
+  text-align: center;
+}
+
+.image-card:hover{
+  border: red solid 1.5px;
+  cursor: pointer;
+}
+
+.video-card{ 
+  display: inline-grid;
+  border: grey solid 1px;
+  padding: 1rem;
+  padding-bottom: 1rem;
+  width: 10rem;
+  height: 3.5rem;
+  margin: 1rem 2rem;
+  text-align: center;
+}

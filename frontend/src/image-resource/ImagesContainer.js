@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Image from './Image'
+import { ImageCard } from './ImageCard'
 
 
 const ImagesContainer = (props) => {
@@ -8,7 +8,7 @@ const ImagesContainer = (props) => {
     const renderImages = (props) => {
         //debugger
         return props.images.map(image => {
-            return <Image key={image.id} {...image}/>
+            return <ImageCard key={image.id} {...image}/>
         })
        
     }
