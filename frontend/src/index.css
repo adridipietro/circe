@@ -12,9 +12,6 @@ code {
     monospace;
 }
 
-div.navbar {
-  padding: 2em;
-}
 
 
 .single-video {
@@ -78,4 +75,19 @@ li {
 
 .video-card{
   margin: 5px;
+}
+
+#form-control{
+  width: 40%;
+}
+
+
+.navbar {
+  width: auto;
+  padding: 50px;
+  margin-bottom: 50px;
+}
+
+.nav-link {
+  text-align: left;
 }

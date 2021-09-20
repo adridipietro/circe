@@ -1,14 +1,14 @@
 import React from 'react'
 import { createVideo } from '../actions/index'
 import { connect } from 'react-redux'
+import { Form, Button } from 'react-bootstrap'
 
 
-import { Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class NewVideoForm extends React.Component {
     state = {
-        image: {
+        video: {
             name: '',
             caption: '',
             likes: 0,
@@ -34,12 +34,14 @@ class NewVideoForm extends React.Component {
         return (
             <div className="form-container">
                 <h4>NEW VIDEO</h4>
-                <form className="video-form" onSubmit={this.handleSubmit}>
-                    <input type="text" className="video-name" name="name" defaultValue={name} onChange={this.handleChange} placeholder="video name"/><br/>
-                    <input type="text" className="video-source"  name="source" defaultValue={source} onChange={this.handleChange} placeholder="video source"/><br/>
-                    <input type="text" className="video-caption"   name="caption" defaultValue={caption} onChange={this.handleChange} placeholder="video caption"/><br/><br/>
-                    <Button type="submit" value="submit">submit</Button>
-                </form>
+                <Form className="video-form" onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Control id="form-control" type="text" className="video-name" name="name" defaultValue={name} placeholder="video name" onChange={this.handleChange}/><br/>
+                        <Form.Control  id="form-control" type="text" className="video-source" name="source" defaultValue={source} placeholder="video source" onChange={this.handleChange}/><br/>
+                        <Form.Control id="form-control" type="text" className="video-caption" name="caption" defaultValue={caption} placeholder="video caption" onChange={this.handleChange}/><br/><br/>
+                        <Button className="submit" type="submit" value="submit">submit</Button>
+                    </Form.Group>
+                </Form>
             </div>
         )
     }

@@ -33,12 +33,13 @@ class NewImageForm extends React.Component {
             <div className="form-container">
                 <h4>NEW IMAGE</h4>
                 <Form className="image-form" onSubmit={this.handleSubmit}>
-                    <input type="text" className="image-name" name="name" defaultValue={name} placeholder="image name" onChange={this.handleChange}/><br/>
-                    <input type="text" className="image-source" name="source" defaultValue={source} placeholder="image source" onChange={this.handleChange}/><br/>
-                    <input type="text" className="image-caption" name="caption" defaultValue={caption} placeholder="image caption" onChange={this.handleChange}/><br/><br/>
-                    <Button type="submit" value="submit">submit</Button>
+                    <Form.Group>
+                        <Form.Control id="form-control" type="text" className="image-name" name="name" defaultValue={name} placeholder="image name" onChange={this.handleChange}/><br/>
+                        <Form.Control id="form-control" type="text" className="image-source" name="source" defaultValue={source} placeholder="image source" onChange={this.handleChange}/><br/>
+                        <Form.Control  id="form-control" type="text" className="image-caption" name="caption" defaultValue={caption} placeholder="image caption" onChange={this.handleChange}/><br/><br/>
+                        <Button type="submit" value="submit">submit</Button>
+                    </Form.Group>
                 </Form>
-    
             </div>
         )
     }

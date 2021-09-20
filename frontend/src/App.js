@@ -19,7 +19,6 @@ import NewVideoForm from './video-resource/NewVideoForm'
 import Post from './post-resource/Post'
 import Video from './video-resource/Video'
 import Image from './image-resource/Image'
-import { ImageCard } from './image-resource/ImageCard'
 import { connect } from 'react-redux'
 
 
