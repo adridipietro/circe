@@ -51,9 +51,8 @@ li {
 .image-card{ 
   display: inline-grid;
   border: grey solid 1px;
-  padding: 1rem;
   padding-bottom: 1rem;
-  width: 10rem;
+  width: 16rem;
   height: 3.5rem;
   margin: 1rem 2rem;
   text-align: center;
@@ -67,10 +66,28 @@ li {
 .video-card{ 
   display: inline-grid;
   border: grey solid 1px;
-  padding: 1rem;
-  padding-bottom: 1rem;
-  width: 10rem;
+  padding-bottom: 1.5rem;
+  width: 16rem;
   height: 3.5rem;
   margin: 1rem 2rem;
   text-align: center;
+}
+
+.video-card:hover{
+  border: red solid 1.5px;
+  cursor: pointer;
+}
+
+.post-card{ 
+  border: grey solid 1px;
+  padding-bottom: 1rem;
+  width: 17rem;
+  height: 2.5rem;
+  margin: 1rem 2rem;
+  text-align: center;
+}
+
+.post-card:hover{
+  border: red solid 1.5px;
+  cursor: pointer;
 }

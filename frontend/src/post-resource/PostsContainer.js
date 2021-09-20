@@ -1,12 +1,12 @@
 import React from 'react'
-import Post from './Post'
+import { PostCard } from './PostCard'
 import { connect } from 'react-redux'
 
 const PostsContainer = (props) => {
 
     const renderPosts = (props) => {
         return props.posts.map(post => {
-            return <Post key={post.id} {...post} />
+            return <PostCard key={post.id} {...post} />
         })
     }
         return (
