@@ -48,46 +48,34 @@ li {
   list-style: none;
 }
 
-.image-card{ 
-  display: inline-grid;
-  border: grey solid 1px;
-  padding-bottom: 1rem;
-  width: 16rem;
-  height: 3.5rem;
-  margin: 1rem 2rem;
-  text-align: center;
-}
 
 .image-card:hover{
-  border: red solid 1.5px;
+  border: green solid 1.5px;
   cursor: pointer;
 }
 
-.video-card{ 
-  display: inline-grid;
-  border: grey solid 1px;
-  padding-bottom: 1.5rem;
-  width: 16rem;
-  height: 3.5rem;
-  margin: 1rem 2rem;
-  text-align: center;
-}
 
 .video-card:hover{
-  border: red solid 1.5px;
+  border: green solid 1.5px;
   cursor: pointer;
 }
 
-.post-card{ 
-  border: grey solid 1px;
-  padding-bottom: 1rem;
-  width: 17rem;
-  height: 2.5rem;
-  margin: 1rem 2rem;
-  text-align: center;
-}
 
 .post-card:hover{
-  border: red solid 1.5px;
+  border: green solid 1.5px;
   cursor: pointer;
+}
+
+.post-card{
+  margin: 5px;
+}
+
+
+.image-card{
+  margin: 5px;
+}
+
+
+.video-card{
+  margin: 5px;
 }

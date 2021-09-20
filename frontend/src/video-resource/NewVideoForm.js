@@ -2,6 +2,10 @@ import React from 'react'
 import { createVideo } from '../actions/index'
 import { connect } from 'react-redux'
 
+
+import { Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 class NewVideoForm extends React.Component {
     state = {
         image: {
@@ -34,7 +38,7 @@ class NewVideoForm extends React.Component {
                     <input type="text" className="video-name" name="name" defaultValue={name} onChange={this.handleChange} placeholder="video name"/><br/>
                     <input type="text" className="video-source"  name="source" defaultValue={source} onChange={this.handleChange} placeholder="video source"/><br/>
                     <input type="text" className="video-caption"   name="caption" defaultValue={caption} onChange={this.handleChange} placeholder="video caption"/><br/><br/>
-                    <button type="submit" value="submit">submit</button>
+                    <Button type="submit" value="submit">submit</Button>
                 </form>
             </div>
         )
