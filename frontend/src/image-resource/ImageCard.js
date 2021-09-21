@@ -15,7 +15,7 @@ export const ImageCard = (props) => {
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <Card.Text>{props.caption}</Card.Text>
-                    <Button variant="success">click for more</Button>
+                    <Button variant="secondary">click for more</Button>
                 </Card.Body>
         </Card>
         

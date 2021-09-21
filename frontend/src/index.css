@@ -15,29 +15,26 @@ code {
 
 
 .single-video {
-  border: grey solid 1px;
+  
   padding: 1rem;
   width: 17rem;
   height: 30rem;
-  display: inline-grid;
   margin: 1rem 2rem;
 }
 
 .single-post {
-  border: grey solid 1px;
+  
   padding: 1rem;
   width: 17rem;
   height: 30rem;
-  display: inline-grid;
   margin: 1rem 2rem;
 }
 
 .single-image{
-  border: grey solid 1px;
+  display: inline-block;
   padding: 1rem;
   width: 17rem;
   height: 30rem;
-  display: inline-grid;
   margin: 1rem 2rem;
 }
 
@@ -47,19 +44,19 @@ li {
 
 
 .image-card:hover{
-  border: green solid 1.5px;
+  border: rgb(66, 66, 66) solid 1.5px;
   cursor: pointer;
 }
 
 
 .video-card:hover{
-  border: green solid 1.5px;
+  border: rgb(80, 80, 80) solid 1.5px;
   cursor: pointer;
 }
 
 
 .post-card:hover{
-  border: green solid 1.5px;
+  border: rgb(105, 105, 105) solid 1.5px;
   cursor: pointer;
 }
 

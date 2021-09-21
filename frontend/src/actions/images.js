@@ -1,6 +1,8 @@
+import { AccordionButton } from "react-bootstrap";
 import { 
     CREATE_IMAGE, 
     LOADING_IMAGES, 
+    FETCH_IMAGE,
     ERROR, GET_IMAGES, 
     DELETE_IMAGE, 
     LIKE_IMAGE 
@@ -33,6 +35,33 @@ export function createImage(image){
             dispatch({type: ERROR, payload: error})
         })
         
+    }
+}
+
+export function fetchImage(id){
+    return (dispatch) => {
+        fetch(`http://localhost:3001/images/${id}`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify(id)
+        })
+        .then(response => {
+            if (response.ok){
+                response.json().then((json) => {
+                    dispatch({type: FETCH_IMAGE, payload: json})
+                })
+            } else {
+                return response.json().then((json) => {
+                    return Promise.reject(json)
+                })
+            }
+        })
+        .catch(error => {
+            dispatch({type: ERROR, payload: error})
+        })
     }
 }
 

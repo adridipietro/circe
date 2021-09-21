@@ -4,7 +4,8 @@ import {
     CREATE_IMAGE,
     DELETE_IMAGE,
     LIKE_IMAGE,
-    EDIT_IMAGE
+    EDIT_IMAGE,
+    FETCH_IMAGE
 } from '../actions/types.js'
 
 
@@ -50,6 +51,11 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
         case EDIT_IMAGE:
             return {
                 
+            }
+        case FETCH_IMAGE:
+            return {
+                ...state, 
+                [action.payload.id]: action.payload
             }
         default:
             return state
