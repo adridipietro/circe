@@ -18,7 +18,7 @@ import NewVideoForm from './video-resource/NewVideoForm'
 
 import Post from './post-resource/Post'
 import Video from './video-resource/Video'
-import Image from './image-resource/Image'
+import SingleImage from './image-resource/SingleImage'
 import { connect } from 'react-redux'
 
 
@@ -53,7 +53,7 @@ class App extends React.Component{
             <Route exact path="/videos/new" render={routeProps => <NewVideoForm createVideo={this.props.createVideo} {...routeProps}/>}/>
             <Route exact path="/posts/new" render={routeProps => <NewPostForm posts={this.props.posts} createPost={this.props.createPost} {...routeProps}/>}/>
             <Route exact path="/images/new" render={routeProps => <NewImageForm createImage={this.props.createImage} {...routeProps}/>}/>
-            <Route exact path="/images/:id" render={routeProps => <Image image={this.props.image} deleteImage={this.props.deleteImage} likeImage={this.props.likeImage} {...routeProps}/>}/>
+            <Route exact path="/images/:id" render={routeProps => <SingleImage image={this.props.image} deleteImage={this.props.deleteImage} likeImage={this.props.likeImage} {...routeProps}/>}/>
             <Route exact path="/videos/:id" render={routeProps => <Video deleteVideo={this.props.deleteVideo} likeVideo={this.props.likeVideo} {...routeProps}/>}/>
             <Route exact path="/posts/:id" render={routeProps => <Post deletePost={this.props.deletePost} likePost={this.props.likePost} {...routeProps}/>}/>
           </Switch>

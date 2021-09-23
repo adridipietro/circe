@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { deleteImage, likeImage } from '../actions/index'
 import { useHistory } from 'react-router'
 
-import { Button } from 'react-bootstrap'
+import { Button, Image } from 'react-bootstrap'
 
 
-const Image = (props) => {
+const SingleImage = (props) => {
     const history = useHistory()
     const image = useSelector(state => state.images.images.find(image => image.id === parseInt(props.match.params.id)))
    
@@ -29,8 +29,8 @@ const Image = (props) => {
 
             <div className="single-image" id={`image-${image.id}`}>
                 <h4>{image.name}</h4>
-                <p>source: {image.source}</p>
-                <p>caption: {image.caption}</p>
+                <Image src={image.source} fluid/>
+                <p>{image.caption}</p>
                 <p>likes: {image.likes}</p>
                 <br/>
                 <Button variant="secondary"className="delete" onClick={handleDelete} id={image.id}>delete</Button>
@@ -55,4 +55,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Image)
+export default connect(mapStateToProps, mapDispatchToProps)(SingleImage)

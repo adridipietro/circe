@@ -6,6 +6,9 @@ import  { useSelector } from 'react-redux'
 import { Button } from 'react-bootstrap'
 
 
+
+
+
 const Video = (props) => {
     const video = useSelector(state => state.videos.videos.find(video => video.id === parseInt(props.match.params.id)))
     const history = useHistory()
@@ -24,8 +27,8 @@ const Video = (props) => {
     return (
         <div className="single-video" id={`video-${video.id}`}>
             <h4>{video.name}</h4>
-            <p>source: {video.source}</p>
-            <p>caption: {video.caption}</p>
+            <iframe src={video.source} allow='autoplay; encrypted-media' allowfullscreen/>
+            <p>{video.caption}</p>
             <p>likes: {video.likes}</p>
             <br/>
             <Button className="delete" id={video.id} onClick={handleDelete}>delete</Button>
