@@ -4,7 +4,7 @@ export const GET_IMAGES = 'GET_IMAGES'
 export const DELETE_IMAGE = 'DELETE_IMAGE'
 export const LIKE_IMAGE = 'LIKE_IMAGE'
 export const EDIT_IMAGE = 'EDIT_IMAGE'
-export const FETCH_IMAGE = 'FETCH_IMAGE'
+/* export const FETCH_IMAGE = 'FETCH_IMAGE' */
 
 
 export const LOADING_VIDEOS = 'LOADING_VIDEOS'

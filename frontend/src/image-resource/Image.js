@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import  { useSelector } from 'react-redux'
 import { connect } from 'react-redux'
 import { deleteImage, likeImage, fetchImage } from '../actions/index'
 import { useHistory } from 'react-router'
@@ -7,55 +8,53 @@ import { Button } from 'react-bootstrap'
 
 
 const Image = (props) => {
-    console.log(props)
-
-    useEffect(() => {
-        console.log(props)
-        const { id } = props.match.params.id
-        props.fetchImage(id)
-    }, [])
-
+    //debugger
     const history = useHistory()
+    const image = useSelector(state => state.images.images.find(image => image.id === parseInt(props.match.params.id)))
    
-    
-    
-    const handleDelete= (id) => { 
-        props.deleteImage(id)
+
+    const handleDelete= (image) => { 
+        props.deleteImage(image.id)
         //debugger
-        document.querySelector(`#image-${id}`).remove()
+        document.querySelector(`#image-${image.id}`).remove()
         history.push(`/images`)
     }
     
-    const handleLike = (id) =>{
-        props.likeImage(id)
-        history.push(`/images/${props.id}`)
+    const handleLike = (image) =>{
+        props.likeImage(image.id)
+        history.push(`/images/${image.id}`)
     }
-        
-    const { id, name, source, caption, likes } = props
 
-            return (
-                <div className="single-image" id={`image-${id}`}>
-                    <h4>{name}</h4>
-                    <p>source: {source}</p>
-                    <p>caption: {caption}</p>
-                    <p>likes: {likes}</p>
-                    <br/>
-                    <Button variant="secondary"className="delete" onClick={handleDelete} id={id}>delete</Button>
-                    <Button variant="success" className="like" onClick={handleLike} id={id}>like</Button>
-                    
-                </div>
-            )
 
-    
+    return (
+
+            <div className="single-image" id={`image-${image.id}`}>
+                <h4>{image.name}</h4>
+                <p>source: {image.source}</p>
+                <p>caption: {image.caption}</p>
+                <p>likes: {image.likes}</p>
+                <br/>
+                <Button variant="secondary"className="delete" onClick={handleDelete} id={image.id}>delete</Button>
+                <Button variant="success" className="like" onClick={handleLike} id={image.id}>like</Button>
+                        
+            </div>
+           
+    )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        images: state.images.images
+    }
+
 }
 
 
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteImage: (id) => dispatch(deleteImage(id)),
-        likeImage: (id) => dispatch(likeImage(id)),
-        fetchImage: (id) => dispatch(fetchImage(id))
+        likeImage: (id) => dispatch(likeImage(id))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Image)
+export default connect(mapStateToProps, mapDispatchToProps)(Image)

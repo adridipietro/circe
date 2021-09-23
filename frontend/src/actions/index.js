@@ -3,8 +3,8 @@ export {
     createImage,
     deleteImage,
     /* editImage, */
-    likeImage,
-    fetchImage 
+    likeImage/* ,
+    fetchImage  */
 } from './images'
 
 

@@ -2,7 +2,7 @@
 import { 
     CREATE_IMAGE, 
     LOADING_IMAGES, 
-    FETCH_IMAGE,
+    /* FETCH_IMAGE, */
     ERROR, GET_IMAGES, 
     DELETE_IMAGE, 
     LIKE_IMAGE 
@@ -40,7 +40,7 @@ export function createImage(image){
 
 
 
-export function fetchImage(id){
+/* export function fetchImage(id){
     return (dispatch) => {
         fetch(`http://localhost:3001/images/${id}`, {
             method: 'GET',
@@ -65,7 +65,7 @@ export function fetchImage(id){
             dispatch({type: ERROR, payload: error})
         })
     }
-}
+} */
 
 
 export function getImages(){

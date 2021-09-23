@@ -5,7 +5,7 @@ import {
     DELETE_IMAGE,
     LIKE_IMAGE,
     EDIT_IMAGE,
-    FETCH_IMAGE
+    /* FETCH_IMAGE */
 } from '../actions/types.js'
 
 export const selectImageById = (state, imageId) => {
@@ -54,11 +54,11 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
             return {
                 
             }
-        case FETCH_IMAGE:
+       /*  case FETCH_IMAGE:
             return {
                 ...state,
                 image: selectImageById
-            }
+            } */
         default:
             return state
         
