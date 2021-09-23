@@ -1,14 +1,13 @@
 import React from 'react'
 import  { useSelector } from 'react-redux'
 import { connect } from 'react-redux'
-import { deleteImage, likeImage, fetchImage } from '../actions/index'
+import { deleteImage, likeImage } from '../actions/index'
 import { useHistory } from 'react-router'
 
 import { Button } from 'react-bootstrap'
 
 
 const Image = (props) => {
-    //debugger
     const history = useHistory()
     const image = useSelector(state => state.images.images.find(image => image.id === parseInt(props.match.params.id)))
    
@@ -46,7 +45,6 @@ const mapStateToProps = (state) => {
     return {
         images: state.images.images
     }
-
 }
 
 

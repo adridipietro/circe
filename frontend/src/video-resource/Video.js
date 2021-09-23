@@ -2,34 +2,44 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router'
 import { deleteVideo, likeVideo } from '../actions/index'
+import  { useSelector } from 'react-redux'
+import { Button } from 'react-bootstrap'
+
 
 const Video = (props) => {
-
+    const video = useSelector(state => state.videos.videos.find(video => video.id === parseInt(props.match.params.id)))
     const history = useHistory()
 
-    const handleDelete = () => {
-        props.deleteVideo(props.id)
-        document.querySelector(`#video-${props.id}`).remove()
+    const handleDelete = (video) => {
+        props.deleteVideo(video.id)
+        document.querySelector(`#video-${video.id}`).remove()
         history.push(`/videos`)
     }
 
-    const handleLike = () => {
-        props.likeVideo(props.id)
-        history.push(`/videos/${props.id}`)
+    const handleLike = (video) => {
+        props.likeVideo(video.id)
+        history.push(`/videos/${video.id}`)
     }
 
     return (
-        <div className="single-video" id={`video-${props.id}`}>
-            <h4>{props.name}</h4>
-            <p>source: {props.source}</p>
-            <p>caption: {props.caption}</p>
-            <p>likes: {props.likes}</p>
+        <div className="single-video" id={`video-${video.id}`}>
+            <h4>{video.name}</h4>
+            <p>source: {video.source}</p>
+            <p>caption: {video.caption}</p>
+            <p>likes: {video.likes}</p>
             <br/>
-            <button className="delete" id={props.id} onClick={handleDelete}>delete</button>
-            <button className="like" onClick={handleLike} id={props.id}>like</button>
+            <Button className="delete" id={video.id} onClick={handleDelete}>delete</Button>
+            <Button className="like" onClick={handleLike} id={video.id}>like</Button>
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        videos: state.videos.videos
+    }
+}
+
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -38,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Video)
+export default connect(mapStateToProps, mapDispatchToProps)(Video)
