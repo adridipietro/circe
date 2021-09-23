@@ -8,7 +8,9 @@ import {
     FETCH_IMAGE
 } from '../actions/types.js'
 
-
+export const selectImageById = (state, imageId) => {
+    state.images.find(image => image.id === imageId)
+}
 
 
 export default (state = { images: [], loading: false, error: '' }, action) => {
@@ -54,8 +56,8 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
             }
         case FETCH_IMAGE:
             return {
-                ...state, 
-                [action.payload.id]: action.payload
+                ...state,
+                image: selectImageById
             }
         default:
             return state

@@ -1,36 +1,38 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { deleteImage, likeImage, fetchImage } from '../actions/index'
-//import { useHistory } from 'react-router'
+import { useHistory } from 'react-router'
 
 import { Button } from 'react-bootstrap'
 
 
-class Image extends React.Component {
+const Image = (props) => {
+    console.log(props)
 
-    componentDidMount(){
-        
-        const { id } = this.props.match.params
-        this.props.fetchImage(id)
-        debugger
-    }
+    useEffect(() => {
+        console.log(props)
+        const { id } = props.match.params.id
+        props.fetchImage(id)
+    }, [])
+
+    const history = useHistory()
+   
     
     
-    handleDelete(id){
-        this.props.deleteImage(id)
-        debugger
+    const handleDelete= (id) => { 
+        props.deleteImage(id)
+        //debugger
         document.querySelector(`#image-${id}`).remove()
-        //history.push(`/images`)
+        history.push(`/images`)
     }
     
-    handleLike(id){
-        this.props.likeImage(id)
-        //history.push(`/images/${props.id}`)
+    const handleLike = (id) =>{
+        props.likeImage(id)
+        history.push(`/images/${props.id}`)
     }
         
-    render(){
-        debugger
-        const { id, name, source, caption, likes } = this.props
+    const { id, name, source, caption, likes } = props
+
             return (
                 <div className="single-image" id={`image-${id}`}>
                     <h4>{name}</h4>
@@ -38,12 +40,12 @@ class Image extends React.Component {
                     <p>caption: {caption}</p>
                     <p>likes: {likes}</p>
                     <br/>
-                    <Button variant="secondary"className="delete" onClick={this.handleDelete} id={id}>delete</Button>
-                    <Button variant="success" className="like" onClick={this.handleLike} id={id}>like</Button>
+                    <Button variant="secondary"className="delete" onClick={handleDelete} id={id}>delete</Button>
+                    <Button variant="success" className="like" onClick={handleLike} id={id}>like</Button>
                     
                 </div>
             )
-        }
+
     
 }
 

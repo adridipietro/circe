@@ -1,4 +1,4 @@
-import { AccordionButton } from "react-bootstrap";
+
 import { 
     CREATE_IMAGE, 
     LOADING_IMAGES, 
@@ -37,6 +37,8 @@ export function createImage(image){
         
     }
 }
+
+
 
 export function fetchImage(id){
     return (dispatch) => {
