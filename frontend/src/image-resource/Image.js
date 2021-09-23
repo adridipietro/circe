@@ -12,14 +12,14 @@ const Image = (props) => {
     const image = useSelector(state => state.images.images.find(image => image.id === parseInt(props.match.params.id)))
    
 
-    const handleDelete= (image) => { 
-        props.deleteImage(image.id)
+    const handleDelete = () => { 
         //debugger
-        document.querySelector(`#image-${image.id}`).remove()
+        props.deleteImage(image.id)
+        //document.querySelector(`#image-${image.id}`).remove()
         history.push(`/images`)
     }
     
-    const handleLike = (image) =>{
+    const handleLike = () =>{
         props.likeImage(image.id)
         history.push(`/images/${image.id}`)
     }

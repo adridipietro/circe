@@ -2,7 +2,6 @@
 import { 
     CREATE_IMAGE, 
     LOADING_IMAGES, 
-    /* FETCH_IMAGE, */
     ERROR, GET_IMAGES, 
     DELETE_IMAGE, 
     LIKE_IMAGE 

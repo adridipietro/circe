@@ -10,13 +10,13 @@ const Video = (props) => {
     const video = useSelector(state => state.videos.videos.find(video => video.id === parseInt(props.match.params.id)))
     const history = useHistory()
 
-    const handleDelete = (video) => {
+    const handleDelete = () => {
         props.deleteVideo(video.id)
-        document.querySelector(`#video-${video.id}`).remove()
+        //document.querySelector(`#video-${video.id}`).remove()
         history.push(`/videos`)
     }
 
-    const handleLike = (video) => {
+    const handleLike = () => {
         props.likeVideo(video.id)
         history.push(`/videos/${video.id}`)
     }

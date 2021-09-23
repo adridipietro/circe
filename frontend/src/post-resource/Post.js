@@ -10,13 +10,13 @@ const Post = (props) => {
     const history = useHistory()
     const post = useSelector(state => state.posts.posts.find(post => post.id === parseInt(props.match.params.id)))
 
-    const handleDelete = (post) => {
+    const handleDelete = () => {
         props.deletePost(post.id)
-        document.querySelector(`#post-${post.id}`).remove()
+        //document.querySelector(`#post-${post.id}`).remove()
         history.push('/posts')
     }
 
-    const handleLike = (post) => {
+    const handleLike = () => {
         props.likePost(post.id)
         history.push(`/posts/${post.id}`)
     }

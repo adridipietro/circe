@@ -8,12 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 class NewVideoForm extends React.Component {
     state = {
-        video: {
             name: '',
             caption: '',
             likes: 0,
             source: ''
-        }
     }
 
     handleSubmit = (e) => {

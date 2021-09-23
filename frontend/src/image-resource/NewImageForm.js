@@ -5,12 +5,10 @@ import { Form, Button } from 'react-bootstrap'
 
 class NewImageForm extends React.Component {
     state = {
-        image: {
-            name: '',
-            caption: '',
-            likes: 0,
-            source: ''
-        }
+        name: '',
+        caption: '',
+        likes: 0,
+        source: ''
     }
 
     handleSubmit = (e) => {
@@ -20,6 +18,7 @@ class NewImageForm extends React.Component {
     }
 
     handleChange = (e) => {
+
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -45,6 +44,12 @@ class NewImageForm extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        images: state.images.images
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createImage: (image) => dispatch(createImage(image))
@@ -52,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(NewImageForm)
+export default connect(mapStateToProps, mapDispatchToProps)(NewImageForm)

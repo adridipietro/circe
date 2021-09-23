@@ -6,11 +6,10 @@ import { Form, Button } from 'react-bootstrap'
 class NewPostForm extends React.Component {
     
     state = {
-        post: {
-            name: '',
-            text: '',
-            likes: 0
-        }
+        
+        name: '',
+        text: '',
+        likes: 0
     }
 
     handleSubmit = (e) => {

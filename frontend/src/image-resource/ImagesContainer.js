@@ -5,7 +5,7 @@ import { ImageCard } from './ImageCard'
 
 const ImagesContainer = (props) => {
 
-    const renderImages = (props) => {
+    const renderImages = () => {
         //debugger
         return props.images.map(image => {
             return <ImageCard key={image.id} {...image}/>
