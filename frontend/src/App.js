@@ -7,6 +7,7 @@ import React from 'react'
 import Home from './Home'
 import Navbar from './Navbar'
 import About from './About'
+import Search from './Search'
 
 import ImagesContainer from './image-resource/ImagesContainer'
 import VideosContainer from './video-resource/VideosContainer'
@@ -44,6 +45,7 @@ class App extends React.Component{
         <br></br>
         <Router>
           <Navbar/>
+          <Search/>
           <Switch>
             <Route exact path="/" render={() => <Home/>}/>
             <Route exact path="/about" render={() => <About/>}/>
