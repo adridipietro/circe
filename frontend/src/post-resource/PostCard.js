@@ -16,7 +16,7 @@ export const PostCard = (props) => {
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <Card.Text>{props.text.slice(0, 30)}...</Card.Text>
-                    <Button variant="secondary">click for more</Button>
+                    <Button variant="secondary"><i class="far fa-hand-point-right" aria-hidden="true"></i></Button>
                 </Card.Body>
         </Card>
         

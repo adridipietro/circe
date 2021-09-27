@@ -25,10 +25,10 @@ const Post = (props) => {
         <div className="single-post" id={`post-${post.id}`}>
             <h4 id="post-name">{post.name}</h4>
             <p>{post.text}</p>
-            <p>{post.likes}</p>
+            <p><strong>{post.likes}</strong> likes</p>
             <br/>
-            <Button className="delete" onClick={handleDelete} id={post.id}>delete</Button>
-            <Button className="like" onClick={handleLike} id={post.id}>like</Button>
+            <Button variant="secondary"className="delete" onClick={handleDelete} id={post.id}><i class="fa fa-trash"></i></Button>
+                <Button variant="secondary" className="like" onClick={handleLike} id={post.id}><i class="fab fa-gratipay"></i></Button>
         </div>
     )
 }

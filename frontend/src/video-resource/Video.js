@@ -25,14 +25,12 @@ const Video = (props) => {
     return (
         <div className="single-video" id={`video-${video.id}`}>
             <h4>{video.name}</h4>
-            <video controls width="250">
-                <source src={video.source} type="video/mp4" autoplay="false"/>
-            </video>
+            <video src={video.source} autoplay="false" controls/>
             <p>{video.caption}</p>
-            <p>likes: {video.likes}</p>
+            <p><strong>{video.likes}</strong> likes</p>
             <br/>
-            <Button className="delete" id={video.id} onClick={handleDelete}>delete</Button>
-            <Button className="like" onClick={handleLike} id={video.id}>like</Button>
+            <Button variant="secondary"className="delete" onClick={handleDelete} id={video.id}><i class="fa fa-trash"></i></Button>
+            <Button variant="secondary" className="like" onClick={handleLike} id={video.id}><i class="fab fa-gratipay"></i></Button>
         </div>
     )
 }

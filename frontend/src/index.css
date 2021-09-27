@@ -17,9 +17,9 @@ code {
 }
 
 video {
-  max-width: 30%;
-  align-items: center;
-  margin-left: 375px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .single-video {
@@ -48,6 +48,18 @@ video {
 
 li {
   list-style: none;
+}
+
+.form-control {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-img-top {
+  margin-top: 10px;
+  max-width: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -102,3 +114,6 @@ li {
   border-radius: 2px 2px 0 0;
 }
 
+.delete {
+  margin: 1px 3px;
+}

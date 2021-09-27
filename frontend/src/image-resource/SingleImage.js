@@ -31,10 +31,10 @@ const SingleImage = (props) => {
                 <h4>{image.name}</h4>
                 <Image src={image.source} fluid/>
                 <p>{image.caption}</p>
-                <p>likes: {image.likes}</p>
+                <p><strong>{image.likes}</strong> likes</p>
                 <br/>
-                <Button variant="secondary"className="delete" onClick={handleDelete} id={image.id}>delete</Button>
-                <Button variant="success" className="like" onClick={handleLike} id={image.id}>like</Button>
+                <Button variant="secondary"className="delete" onClick={handleDelete} id={image.id}><i class="fa fa-trash"></i></Button>
+                <Button variant="secondary" className="like" onClick={handleLike} id={image.id}><i class="fab fa-gratipay"></i></Button>
                         
             </div>
            
