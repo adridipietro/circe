@@ -23,7 +23,7 @@ const Post = (props) => {
 
     return (
         <div className="single-post" id={`post-${post.id}`}>
-            <h4>{post.name}</h4>
+            <h4 id="post-name">{post.name}</h4>
             <p>{post.text}</p>
             <p>{post.likes}</p>
             <br/>

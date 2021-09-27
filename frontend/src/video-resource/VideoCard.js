@@ -11,11 +11,11 @@ export const VideoCard = (props) => {
     
     return (
         <Card className="video-card" id={`video-${props.id}`} onClick={viewVideo}>
-            <Card.Img src={props.source}/>
+            <video src={props.source} controls/>
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <Card.Text>{props.caption}</Card.Text>
-                    <Button variant="success">click for more</Button>
+                    <Button variant="secondary">click for more</Button>
                 </Card.Body>
         </Card>
         

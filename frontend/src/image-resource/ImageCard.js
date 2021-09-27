@@ -11,7 +11,7 @@ export const ImageCard = (props) => {
     
     return (
         <Card className="image-card" id={`image-${props.id}`} onClick={viewImage}>
-            <Card.Img src={props.source}/>
+                <Card.Img className="card-img-top" src={props.source} />
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <Card.Text>{props.caption}</Card.Text>

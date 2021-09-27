@@ -7,8 +7,6 @@ import { Button } from 'react-bootstrap'
 
 
 
-
-
 const Video = (props) => {
     const video = useSelector(state => state.videos.videos.find(video => video.id === parseInt(props.match.params.id)))
     const history = useHistory()
@@ -27,7 +25,9 @@ const Video = (props) => {
     return (
         <div className="single-video" id={`video-${video.id}`}>
             <h4>{video.name}</h4>
-            <iframe src={video.source} allow='autoplay; encrypted-media' allowfullscreen/>
+            <video controls width="250">
+                <source src={video.source} type="video/mp4" autoplay="false"/>
+            </video>
             <p>{video.caption}</p>
             <p>likes: {video.likes}</p>
             <br/>

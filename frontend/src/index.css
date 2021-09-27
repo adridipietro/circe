@@ -12,10 +12,18 @@ code {
     monospace;
 }
 
+#post-name{
+  text-align: center;
+}
 
+video {
+  max-width: 30%;
+  align-items: center;
+  margin-left: 375px;
+}
 
 .single-video {
-  
+  display: inline-block;
   padding: 1rem;
   width: 17rem;
   height: 30rem;
@@ -23,7 +31,7 @@ code {
 }
 
 .single-post {
-  
+  display: inline-block;
   padding: 1rem;
   width: 17rem;
   height: 30rem;
@@ -56,8 +64,8 @@ li {
 
 
 .post-card:hover{
-  border: rgb(105, 105, 105) solid 1.5px;
   cursor: pointer;
+  box-shadow: 5px 5px 5px 1px rgb(204, 203, 203) 
 }
 
 .post-card{
@@ -88,3 +96,9 @@ li {
 .nav-link {
   text-align: left;
 }
+
+
+.image-image {
+  border-radius: 2px 2px 0 0;
+}
+
