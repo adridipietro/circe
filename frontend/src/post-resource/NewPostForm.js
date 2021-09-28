@@ -16,7 +16,7 @@ class NewPostForm extends React.Component {
         //debugger
         e.preventDefault()
         this.props.createPost(this.state)
-        document.querySelector(".post-form").reset()
+        this.props.history.push('/posts')
     }
 
     handleChange = (e) => {

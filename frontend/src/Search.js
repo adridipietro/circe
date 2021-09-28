@@ -20,6 +20,7 @@ class Search extends React.Component {
         this.setState({
             isQuerySubmitted: true
         })
+        //this.props.history.push(`/posts`)
     }
 
     handleChange = (e) => {
@@ -39,8 +40,9 @@ class Search extends React.Component {
                 <div className="search-container">
                     <input type="text" className="search-form" onChange={this.handleChange} placeholder="search all posts"/>
                     <Button variant="secondary-outline" type="submit" className="searchButton" onClick={() => this.handleClick(this.state.query, this.props.updateQuery)}>
-                        <i className="fa fa-search"></i>
+                            <i className="fa fa-search"></i>
                     </Button>
+                    
                 </div>
          </div>
         )
