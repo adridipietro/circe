@@ -15,7 +15,7 @@ export const ImageCard = (props) => {
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <Card.Text>{props.caption}</Card.Text>
-                    <Button variant="secondary"><i class="far fa-hand-point-right" aria-hidden="true"></i></Button>
+                    <Button variant="secondary"><i className="far fa-hand-point-right" aria-hidden="true"></i></Button>
                 </Card.Body>
         </Card>
         

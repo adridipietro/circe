@@ -4,7 +4,8 @@ import {
     ERROR,
     DELETE_POST,
     LOADING_POSTS,
-    LIKE_POST
+    LIKE_POST, 
+    UPDATE_QUERY
 } from './types.js'
 
 export function getPosts(){
@@ -125,5 +126,11 @@ export function likePost(id){
         .catch(error => {
             dispatch({type: ERROR, payload: error})
         })
+    }
+}
+
+export const updateQuery = (post) => {
+    return (dispatch) => {
+        dispatch({type: UPDATE_QUERY, query: post})
     }
 }

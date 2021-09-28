@@ -21,5 +21,6 @@ export const GET_POSTS = 'GET_POSTS'
 export const DELETE_POST = 'DELETE_POST'
 export const LIKE_POST = 'LIKE_POST'
 export const EDIT_POST = 'EDIT_POST'
+export const UPDATE_QUERY = 'UPDATE_QUERY'
 
 export const ERROR = 'ERROR'

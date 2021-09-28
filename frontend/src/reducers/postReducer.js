@@ -4,13 +4,14 @@ import {
     CREATE_POST,
     DELETE_POST,
     LIKE_POST,
-    EDIT_POST
+    EDIT_POST,
+    UPDATE_QUERY
 } from '../actions/types.js'
 
 
 
 
-export default (state = { posts: [], loading: false, error: '' }, action) => {
+export default (state = { posts: [], query:'', loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_POSTS:
             return {
@@ -46,6 +47,11 @@ export default (state = { posts: [], loading: false, error: '' }, action) => {
                         likes: post.likes + 1
                     }
                 })
+            }
+        case UPDATE_QUERY:
+            return {
+                ...state, 
+                query: action.query
             }
         case EDIT_POST:
             return {

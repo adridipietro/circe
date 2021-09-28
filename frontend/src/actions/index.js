@@ -20,5 +20,6 @@ export {
     createPost,
     deletePost,
     /* editPost ,*/
-    likePost 
+    likePost,
+    updateQuery 
 } from './posts'

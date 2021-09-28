@@ -1,24 +1,51 @@
 import React from 'react'
 //import { connect } from 'react-redux'
-import { MDBCol } from "mdbreact"
+//import { MDBCol } from "mdbreact"
 
-export const Search = ({searchQuery, setSearchQuery}) => {
-    return (
-        <div className="search-container">
-            <MDBCol md="6">
-                <input 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="form-control form-control-sm ml-3 w-75" 
-                type="text" 
-                placeholder="search" aria-label="Search" 
-                name="s"
-                />
-            </MDBCol>
-        </div>
-    )
+
+
+class Search extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            query: '',
+            isQuerySubmitted: false
+        }
+    
+        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleClick = (query) => {
+        this.props.updateQuery(query)
+        this.setState({
+            isQuerySubmitted: true
+        })
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            query: e.target.value
+        })
+    }
+
+    render(){
+        if (!!this.state.isQuerySubmitted){
+            this.setState({
+                isQuerySubmitted: false
+            })
+        }
+        return (
+            <div>
+                <div className="search-container">
+                    <input type="text" className="searchTerm" onChange={this.handleChange} placeholder="what are you looking for?"/>
+                    <button type="submit" className="searchButton" onClick={() => this.handleClick(this.state.query, this.props.updateQuery)}>
+                        <i className="fa fa-search"></i>
+                    </button>
+                </div>
+         </div>
+        )
+    }
 }
-
-
 
 export default Search
