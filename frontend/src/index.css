@@ -50,6 +50,10 @@ video {
   max-width: 300px;
 }
 
+.search-form {
+  border: 2px lightgray;
+}
+
 li {
   list-style: none;
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-//import { connect } from 'react-redux'
-//import { MDBCol } from "mdbreact"
+import { Button, Form } from 'react-bootstrap'
 
 
 
@@ -38,10 +37,10 @@ class Search extends React.Component {
         return (
             <div>
                 <div className="search-container">
-                    <input type="text" className="searchTerm" onChange={this.handleChange} placeholder="what are you looking for?"/>
-                    <button type="submit" className="searchButton" onClick={() => this.handleClick(this.state.query, this.props.updateQuery)}>
+                    <input type="text" className="search-form" onChange={this.handleChange} placeholder="search all posts"/>
+                    <Button variant="secondary-outline" type="submit" className="searchButton" onClick={() => this.handleClick(this.state.query, this.props.updateQuery)}>
                         <i className="fa fa-search"></i>
-                    </button>
+                    </Button>
                 </div>
          </div>
         )

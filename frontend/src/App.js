@@ -26,7 +26,7 @@ import { connect } from 'react-redux'
 import { getImages, createImage, likeImage, deleteImage } from './actions/index.js'
 import { getPosts, createPost, likePost, deletePost } from './actions/index.js'
 import { getVideos, createVideo, likeVideo, deleteVideo } from './actions/index.js'
-import { updateQuery } from './actions/index.js'
+
 import Search from './Search'
 
 
@@ -51,7 +51,7 @@ class App extends React.Component{
         <br></br>
         <Router>
           <Navbar/>
-          <Search posts={this.props.posts} updateQuery={this.props.updateQuery}/>
+          
           <Switch>
             <Route exact path="/" render={() => <Home/>}/>
             <Route exact path="/about" render={() => <About/>}/>
@@ -93,8 +93,7 @@ const mapDispatchToProps = (dispatch) => {
     likeVideo: (id) => dispatch(likeVideo(id)),
     deleteVideo: (id) => dispatch(deleteVideo(id)),
     likePost: (id) => dispatch(likePost(id)),
-    deletePost: (id) => dispatch(deletePost(id)),
-    updateQuery: (query) => dispatch(updateQuery(query))
+    deletePost: (id) => dispatch(deletePost(id))
 
   }
 }
