@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { VideoCard } from './VideoCard'
+//import Search from '../Search'
 
 const VideosContainer = (props) => {
 
@@ -14,6 +15,10 @@ const VideosContainer = (props) => {
     
     return (
         <div className="videos-container">
+            {/* <Search 
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+            /> */}
             <h3>VIDEOS</h3>
             {renderVideos(props)}
         </div>

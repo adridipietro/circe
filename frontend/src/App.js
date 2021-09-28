@@ -7,7 +7,7 @@ import React from 'react'
 import Home from './Home'
 import Navbar from './Navbar'
 import About from './About'
-import Search from './Search'
+
 
 import ImagesContainer from './image-resource/ImagesContainer'
 import VideosContainer from './video-resource/VideosContainer'
@@ -33,19 +33,19 @@ import { getVideos, createVideo, likeVideo, deleteVideo } from './actions/index.
 
 class App extends React.Component{
 
+
   componentDidMount(){
     this.props.getImages()
     this.props.getPosts()
     this.props.getVideos()
   }
-  
+
   render(){
     return (
       <div className="App">
         <br></br>
         <Router>
           <Navbar/>
-          <Search/>
           <Switch>
             <Route exact path="/" render={() => <Home/>}/>
             <Route exact path="/about" render={() => <About/>}/>

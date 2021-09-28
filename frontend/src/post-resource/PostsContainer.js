@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PostCard } from './PostCard'
 import { connect } from 'react-redux'
+import Search from '../Search'
 
 const PostsContainer = (props) => {
+    const [searchQuery, setSearchQuery] = useState('')
 
     const renderPosts = (props) => {
         return props.posts.map(post => {
@@ -11,6 +13,10 @@ const PostsContainer = (props) => {
     }
         return (
             <div className="posts-container">
+                <Search 
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                />
                 <h3>POSTS</h3>
                 {renderPosts(props)}
             </div>

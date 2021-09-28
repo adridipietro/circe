@@ -1,9 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ImageCard } from './ImageCard'
+//import Search from '../Search'
 
 
 const ImagesContainer = (props) => {
+/*     const { search } = window.location;
+    const query = new URLSearchParams(search).get('s'); */
 
     const renderImages = () => {
         //debugger
@@ -14,6 +17,10 @@ const ImagesContainer = (props) => {
     }
     return (
         <div className="images-container">
+            {/* <Search 
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          /> */}
             <h4> IMAGES </h4>
             {renderImages(props)}
         </div>
