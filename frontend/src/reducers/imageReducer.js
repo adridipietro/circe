@@ -5,7 +5,7 @@ import {
     DELETE_IMAGE,
     LIKE_IMAGE,
     EDIT_IMAGE,
-    /* FETCH_IMAGE */
+    UPDATE_QUERY
 } from '../actions/types.js'
 
 export const selectImageById = (state, imageId) => {
@@ -13,7 +13,7 @@ export const selectImageById = (state, imageId) => {
 }
 
 
-export default (state = { images: [], loading: false, error: '' }, action) => {
+export default (state = { images: [], query: '', loading: false, error: '' }, action) => {
     switch(action.type){
         case LOADING_IMAGES:
             return {
@@ -54,11 +54,11 @@ export default (state = { images: [], loading: false, error: '' }, action) => {
             return {
                 
             }
-       /*  case FETCH_IMAGE:
+        case UPDATE_QUERY:
             return {
-                ...state,
-                image: selectImageById
-            } */
+                    ...state, 
+                    query: action.query
+            }
         default:
             return state
         

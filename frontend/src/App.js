@@ -27,7 +27,7 @@ import { getImages, createImage, likeImage, deleteImage } from './actions/index.
 import { getPosts, createPost, likePost, deletePost } from './actions/index.js'
 import { getVideos, createVideo, likeVideo, deleteVideo } from './actions/index.js'
 
-import Search from './Search'
+
 
 
 
@@ -93,7 +93,8 @@ const mapDispatchToProps = (dispatch) => {
     likeVideo: (id) => dispatch(likeVideo(id)),
     deleteVideo: (id) => dispatch(deleteVideo(id)),
     likePost: (id) => dispatch(likePost(id)),
-    deletePost: (id) => dispatch(deletePost(id))
+    deletePost: (id) => dispatch(deletePost(id))/* ,
+    updateQuery: (query) => dispatch(updateQuery(query)) */
 
   }
 }

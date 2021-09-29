@@ -4,7 +4,8 @@ import {
     LOADING_IMAGES, 
     ERROR, GET_IMAGES, 
     DELETE_IMAGE, 
-    LIKE_IMAGE 
+    LIKE_IMAGE,
+    UPDATE_QUERY
 } from "./types";
 
 export function createImage(image){
@@ -155,6 +156,12 @@ export function likeImage(id){
         .catch(error => {
             dispatch({type: ERROR, payload: error})
         })
+    }
+}
+
+export const updateQuery = (image) => {
+    return (dispatch) => {
+        dispatch({type: UPDATE_QUERY, query: image})
     }
 }
 

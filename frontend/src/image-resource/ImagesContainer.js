@@ -1,28 +1,39 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ImageCard } from './ImageCard'
-//import Search from '../Search'
+import { useParams } from "react-router-dom"
+import { useSelector } from 'react-redux'
+import { updateQuery } from '../actions/index.js'
+import Search from '../Search'
+
+const filteredSearch = (props, query) => {
+    return props.images.filter(image => {
+        return image.name.toLowerCase().includes(query.toLowerCase())
+    })
+}
+
+const renderImages = (id = 0, props, query ) => {
+    if (!query){
+        return props.images.map(image => {
+            return <ImageCard key={image.id} {...image} />
+        })
+    } else if (query){
+        return filteredSearch(props, query).map(image => {
+            return <ImageCard key={image.id} id={id} {...image} />
+        })
+    }
+}
 
 
 const ImagesContainer = (props) => {
-/*     const { search } = window.location;
-    const query = new URLSearchParams(search).get('s'); */
+    const { id } = useParams()
+    const query = useSelector(state => state.images.query)
 
-    const renderImages = () => {
-        //debugger
-        return props.images.map(image => {
-            return <ImageCard key={image.id} {...image}/>
-        })
-       
-    }
     return (
         <div className="images-container">
-            {/* <Search 
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          /> */}
+            <Search images={props.images} updateQuery={props.updateQuery}/>
             <h4> IMAGES </h4>
-            {renderImages(props)}
+            {renderImages(id, query, props)}
         </div>
     )
 }
@@ -33,9 +44,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-/* const mapDispatchToProps = {
-    
-} */
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateQuery: (query) => dispatch(updateQuery(query))
+    }
+}
 
-export default connect(mapStateToProps, null)(ImagesContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ImagesContainer)
 

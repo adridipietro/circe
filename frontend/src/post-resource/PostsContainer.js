@@ -6,9 +6,6 @@ import { useSelector } from 'react-redux'
 import { updateQuery } from '../actions/index.js'
 import Search from '../Search'
 
-
-
-
 /* const filterPosts = (id, props) => {
     let newId = parseInt(id)
     let filtered = props.posts.filter(post => {
@@ -16,6 +13,8 @@ import Search from '../Search'
     })
     return filtered
 } */
+
+debugger
 
 const filteredSearch = (props, query) => {
     return props.posts.filter(post => {
@@ -37,7 +36,7 @@ const renderPosts = (id = 0, props, query ) => {
 
 
 
-const PostsContainer =  (props) => {
+const PostsContainer = (props) => {
     const { id } = useParams()
     const query = useSelector(state => state.posts.query)
     
@@ -46,7 +45,7 @@ const PostsContainer =  (props) => {
             <div className="posts-container">
                 <Search posts={props.posts} updateQuery={props.updateQuery}/>
                 <h3>POSTS</h3>
-                {renderPosts(id, props, query)}
+                {renderPosts(id, query, props)}
             </div>
         )
     
