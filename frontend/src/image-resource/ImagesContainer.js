@@ -6,6 +6,9 @@ import { useSelector } from 'react-redux'
 import { updateQuery } from '../actions/index.js'
 import Search from '../Search'
 
+
+//debugger 
+
 const filteredSearch = (props, query) => {
     return props.images.filter(image => {
         return image.name.toLowerCase().includes(query.toLowerCase())

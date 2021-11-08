@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { useSelector } from 'react-redux'
 import { updateQuery } from '../actions/index.js'
 import Search from '../Search'
+import Error from '../Error'
 
 /* const filterPosts = (id, props) => {
     let newId = parseInt(id)
@@ -17,9 +18,13 @@ import Search from '../Search'
 debugger
 
 const filteredSearch = (props, query) => {
-    return props.posts.filter(post => {
-        return post.name.toLowerCase().includes(query.toLowerCase())
-    })
+    if (!!props.posts){
+        return props.posts.filter(post => {
+            return post.name.toLowerCase().includes(query.toLowerCase())
+        })
+    } else {
+        <Error/>
+    }
 }
 
 const renderPosts = (id = 0, props, query ) => {
