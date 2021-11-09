@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 
+//import {updateQuery} from '../actions/index.js'
+
 
 
 class Search extends React.Component {
@@ -24,9 +26,10 @@ class Search extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({
+        /* this.setState({
             query: e.target.value
-        })
+        }) */
+        this.props.updateQuery(e.target.value)
     }
 
     render(){

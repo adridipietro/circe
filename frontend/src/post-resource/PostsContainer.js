@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { useParams } from "react-router-dom"
 import { useSelector } from 'react-redux'
 import { updateQuery } from '../actions/index.js'
-import Search from '../Search'
+//import Search from '../Search'
 import Error from '../Error'
 
 /* const filterPosts = (id, props) => {
@@ -15,9 +15,9 @@ import Error from '../Error'
     return filtered
 } */
 
-debugger
+//debugger
 
-const filteredSearch = (props, query) => {
+/* const filteredSearch = (props, query) => {
     if (!!props.posts){
         return props.posts.filter(post => {
             return post.name.toLowerCase().includes(query.toLowerCase())
@@ -25,32 +25,27 @@ const filteredSearch = (props, query) => {
     } else {
         <Error/>
     }
-}
+} */
 
-const renderPosts = (id = 0, props, query ) => {
-    if (!query){
+const renderPosts = (props) => {
         return props.posts.map(post => {
             return <PostCard key={post.id} {...post} />
         })
-    } else if (query){
-        return filteredSearch(props, query).map(post => {
-            return <PostCard key={post.id} id={id} {...post} />
-        })
-    }
+
 }
 
 
 
 const PostsContainer = (props) => {
-    const { id } = useParams()
-    const query = useSelector(state => state.posts.query)
+    //const { id } = useParams()
+    //const query = useSelector(state => state.posts.query)
     
     
         return (
             <div className="posts-container">
-                <Search posts={props.posts} updateQuery={props.updateQuery}/>
+                {/* <Search posts={props.posts} updateQuery={props.updateQuery}/> */}
                 <h3>POSTS</h3>
-                {renderPosts(id, query, props)}
+                {renderPosts(props)}
             </div>
         )
     
