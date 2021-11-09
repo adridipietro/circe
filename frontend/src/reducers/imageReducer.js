@@ -13,8 +13,8 @@ export const selectImageById = (state, imageId) => {
 }
 
 
-export default (state = { images: [], query: '', loading: false, error: '' }, action) => {
-    switch(action.type){
+export default function (state = { images: [], query: '', loading: false, error: '' }, action) {
+    switch (action.type) {
         case LOADING_IMAGES:
             return {
                 ...state,
@@ -28,20 +28,19 @@ export default (state = { images: [], query: '', loading: false, error: '' }, ac
             }
         case CREATE_IMAGE:
             return {
-                ...state, 
+                ...state,
                 images: [...state.images, action.payload],
                 loading: false,
                 error: ''
-                
             }
         case DELETE_IMAGE:
-            const removeDeletedImage = state.images.filter(image => image.id !== action.payload) 
-            return {images: removeDeletedImage, loading: false}
+            const removeDeletedImage = state.images.filter(image => image.id !== action.payload)
+            return { images: removeDeletedImage, loading: false }
         case LIKE_IMAGE:
             return {
                 ...state,
                 images: state.images.map(image => {
-                    if (image.id !== action.payload){
+                    if (image.id !== action.payload) {
                         return image
                     }
                     return {
@@ -51,16 +50,14 @@ export default (state = { images: [], query: '', loading: false, error: '' }, ac
                 })
             }
         case EDIT_IMAGE:
-            return {
-                
-            }
+            return {}
         case UPDATE_QUERY:
             return {
-                    ...state, 
-                    query: action.query
+                ...state,
+                query: action.query
             }
         default:
             return state
-        
+
     }
 }

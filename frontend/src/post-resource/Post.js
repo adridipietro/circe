@@ -27,8 +27,8 @@ const Post = (props) => {
             <p>{post.text}</p>
             <p><strong>{post.likes}</strong> likes</p>
             <br/>
-            <Button variant="secondary"className="delete" onClick={handleDelete} id={post.id}><i class="fa fa-trash"></i></Button>
-                <Button variant="secondary" className="like" onClick={handleLike} id={post.id}><i class="fab fa-gratipay"></i></Button>
+            <Button variant="secondary"className="delete" onClick={handleDelete} id={post.id}><i className="fa fa-trash"></i></Button>
+                <Button variant="secondary" className="like" onClick={handleLike} id={post.id}><i className="fab fa-gratipay"></i></Button>
         </div>
     )
 }

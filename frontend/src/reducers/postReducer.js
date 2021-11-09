@@ -11,7 +11,7 @@ import {
 
 
 
-export default (state = { posts: [], query:'', loading: false, error: '' }, action) => {
+export default function (state = { posts: [], query:'', loading: false, error: '' }, action) {
     switch(action.type){
         case LOADING_POSTS:
             return {

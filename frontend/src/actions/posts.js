@@ -110,7 +110,7 @@ export function likePost(id){
             },
             body: JSON.stringify(data)
         }
-        fetch(`http://localhost:3000/posts/${id}`, configObject)
+        fetch(`http://localhost:3001/posts/${id}`, configObject)
         .then(response => {
             if (response.ok) {
                response.json().then(json => {

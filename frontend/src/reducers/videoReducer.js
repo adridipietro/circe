@@ -10,7 +10,7 @@ import {
 
 
 
-export default (state = { videos: [], loading: false, error: '' }, action) => {
+export default function (state = { videos: [], loading: false, error: '' }, action) {
     switch(action.type){
         case LOADING_VIDEOS:
             return {
