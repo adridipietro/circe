@@ -35,6 +35,6 @@ CIRCE utilizes a Ruby on Rails backend API and a JavaScript frontend. CIRCE impl
 
 
 ## CONTRIBUTING + LICENSING
-MIT License, Copyright (c) 2021 am20dipi
+MIT License, Copyright (c) 2024 adridipietro
 
-For more information [click here](https://github.com/am20dipi/Circe-Content).
+For more information [click here](https://github.com/adridipietro/circe).
